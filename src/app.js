@@ -27,7 +27,7 @@ hbs.registerPartials(partials_path);
 // Serving the ststic files at the back end..
 // and express considered the top to bottom manner..
 // and then close the server request..
-app.use("/static", express.static(static_path));
+app.use(express.static(static_path));
 
 
 // routing =>
