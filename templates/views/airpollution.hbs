@@ -183,7 +183,7 @@
                     const longitude = data.coord.lon;
                     const city = data.name;
 
-                    await fetch(`http://api.openweathermap.org/data/2.5/air_pollution?lat=${latitude}&lon=${longitude}&appid=6e2063591e0fcbed66fc99e142be55ab`)
+                    await fetch(`https://api.openweathermap.org/data/2.5/air_pollution?lat=${latitude}&lon=${longitude}&appid=6e2063591e0fcbed66fc99e142be55ab`)
                         .then(async response => await response.json())
                         .then((data) => {
                             console.log(data);

@@ -86,7 +86,7 @@ const showWhetherData = (data)=>{
         data.daily.forEach((element, index) => {
             if (index === 0) {
                 currentTempEl.innerHTML = 
-                `<img src="http://openweathermap.org/img/wn/${element.weather[0].icon}@2x.png" alt="">
+                `<img src="https://openweathermap.org/img/wn/${element.weather[0].icon}@2x.png" alt="">
                 <div class="other">
                     <div class="day">${window.moment(element.dt*1000).format('ddd')}</div>
                     <div class="temp">Night - ${element.temp.night}&#176; C</div>
@@ -97,7 +97,7 @@ const showWhetherData = (data)=>{
                 otherDayForecast += ` 
             <div class="weather-forecast-items">
                 <div class="day">${window.moment(element.dt*1000).format('ddd')}</div>
-                <img src="http://openweathermap.org/img/wn/${element.weather[0].icon}@2x.png" alt="">
+                <img src="https://openweathermap.org/img/wn/${element.weather[0].icon}@2x.png" alt="">
                 <div class="temp">Night - ${element.temp.night}&#176; C</div>
                 <div class="temp">Day - ${element.temp.day}&#176; C</div>
             </div>
@@ -117,7 +117,7 @@ const showHourData = (data)=>{
         `
         <div class="after-hour">
             <div class="time">${window.moment(element.dt*1000).format('LT')}</div>
-            <img src="http://openweathermap.org/img/wn/${element.weather[0].icon}@2x.png" alt="">
+            <img src="https://openweathermap.org/img/wn/${element.weather[0].icon}@2x.png" alt="">
             <div class="temperature">${element.temp}&#176; C</div>
             <div class="description">${element.weather[0].description}</div>
         </div>
