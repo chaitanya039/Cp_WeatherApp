@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    {{>headerlinks}}
+
+    <style>
+        body {
+            margin: 0%;
+            padding: 0%;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            background: url('images/darkNature.jpg') no-repeat center center/cover fixed;
+        }
+
+        #cityName {
+            background: linear-gradient(#1CB5E0, #000046);
+            border: 1px solid #FFF;
+            font-size: 2rem;
+        }
+
+        #weather-icon {
+            width: 450px;
+            height: 450px;
+        }
+
+        .img-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #search-container {
+            display: block;
+        }
+
+        #display-container {
+            display: none;
+        }
+
+        .weather-forecast .weather-forecast-items .temp {
+            font-size: 1.25rem;
+            padding-top: 1.5rem;
+            color: #eee;
+        }
+
+        #weather-icon {
+            width: 40%;
+            height: 70%;
+            display: block;
+            margin: auto;
+            filter: drop-shadow(0 0.5rem 1rem rgba(0, 0, 0, 0.4));
+        }
+
+        ::placeholder {
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    {{>navbar}}
+    <div class="container" id="search-container">
+        <div class="main_content">
+            <form action="" class="temp_form">
+                <input type="text" id="cityName" placeholder="Enter Your City  name..." autocomplete="off">
+                <button type="submit" id="submitBtn" style="font-size:1.9rem;">Search <i class="fa fa-search"
+                        style="margin-left: 0.5rem; font-size:2rem;"></i> </button>
+            </form>
+        </div>
+        <img src="images/weather-icon.png" alt="cp_Weather" class="mx-auto" id="weather-icon">
+    </div>
+
+    <div id="display-container">
+        <div class="container-fluid  mx-auto main-container">
+            <div class="current-info">
+                <div class="date-container">
+                    <div class="time" id="time">
+                        12:30 <span id="am-pm">AM</span>
+                    </div>
+                    <div class="date" id="date">
+                        Monday, 22 Jun
+                    </div>
+                    <button class="btn btn-outline-info" id="ref">See weather of Another City</button>
+                    <div class="current-weather-items" id="current-weather-items">
+                        <div class="weather-item">
+                            <div>Humdity</div>
+                            <div>55%</div>
+                        </div>
+                        <div class="weather-item">
+                            <div>Pressure</div>
+                            <div>55%</div>
+                        </div>
+                        <div class="weather-item">
+                            <div>Wind Speed</div>
+                            <div>55%</div>
+                        </div>
+                        <div class="weather-item">
+                            <div>Sunrise</div>
+                            <div>55%</div>
+                        </div>
+                        <div class="weather-item">
+                            <div>Sunset</div>
+                            <div>55%</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="place-container">
+                    <div class="time-zone" id="time-zone">Asia/Mumbai</div>
+                    <div class="country" id="country">IN</div>
+                    {{!-- hourly --}}
+                    <div class="hourly">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="third-container">
+            <div class="hourly-forecast">
+                <div class="after-hour">
+                    <div class="time">2:00 AM</div>
+                    <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="">
+                    <div class="temperature">25&#176; C</div>
+                    <div class="description">Sunny</div>
+                </div>
+                <div class="after-hour">
+                    <div class="time">2:00 AM</div>
+                    <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="">
+                    <div class="temperature">25&#176; C</div>
+                    <div class="description">Sunny</div>
+                </div>
+                <div class="after-hour">
+                    <div class="time">2:00 AM</div>
+                    <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="">
+                    <div class="temperature">25&#176; C</div>
+                    <div class="description">Sunny</div>
+                </div>
+                <div class="after-hour">
+                    <div class="time">2:00 AM</div>
+                    <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="">
+                    <div class="temperature">25&#176; C</div>
+                    <div class="description">Sunny</div>
+                </div>
+                <div class="after-hour">
+                    <div class="time">2:00 AM</div>
+                    <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="">
+                    <div class="temperature">25&#176; C</div>
+                    <div class="description">Sunny</div>
+                </div>
+                <div class="after-hour">
+                    <div class="time">2:00 AM</div>
+                    <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="">
+                    <div class="temperature">25&#176; C</div>
+                    <div class="description">Sunny</div>
+                </div>
+                <div class="after-hour">
+                    <div class="time">2:00 AM</div>
+                    <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="">
+                    <div class="temperature">25&#176; C</div>
+                    <div class="description">Sunny</div>
+                </div>
+                <div class="after-hour">
+                    <div class="time">2:00 AM</div>
+                    <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="">
+                    <div class="temperature">25&#176; C</div>
+                    <div class="description">Sunny</div>
+                </div>
+                <div class="after-hour">
+                    <div class="time">2:00 AM</div>
+                    <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="">
+                    <div class="temperature">25&#176; C</div>
+                    <div class="description">Sunny</div>
+                </div>
+                <div class="after-hour">
+                    <div class="time">2:00 AM</div>
+                    <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="">
+                    <div class="temperature">25&#176; C</div>
+                    <div class="description">Sunny</div>
+                </div>
+            </div>
+        </div>
+
+        {{!-- future forcasting --}}
+        <div class="second-container">
+            <div class="future-forecast">
+
+                <div class="today" id="current-temp">
+                    <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="">
+                    <div class="other">
+                        <div class="day">Monday</div>
+                        <div class="temp">Night - 25&#176; C</div>
+                        <div class="temp">Day - 22&#176; </div>
+                    </div>
+                </div>
+
+                <div class="weather-forecast" id="weather-forecast">
+                    <div class="weather-forecast-items">
+                        <div class="day">Tue</div>
+                        <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="">
+                        <div class="temp">Night - 25&#176; C</div>
+                        <div class="temp">Day - 22&#176; </div>
+                    </div>
+                    <div class="weather-forecast-items">
+                        <div class="day">Tue</div>
+                        <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="">
+                        <div class="temp">Night - 25&#176; C</div>
+                        <div class="temp">Day - 22&#176; </div>
+                    </div>
+                    <div class="weather-forecast-items">
+                        <div class="day">Tue</div>
+                        <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="">
+                        <div class="temp">Night - 25&#176; C</div>
+                        <div class="temp">Day - 22&#176; </div>
+                    </div>
+                    <div class="weather-forecast-items">
+                        <div class="day">Tue</div>
+                        <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="">
+                        <div class="temp">Night - 25&#176; C</div>
+                        <div class="temp">Day - 22&#176; </div>
+                    </div>
+                    <div class="weather-forecast-items">
+                        <div class="day">Tue</div>
+                        <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="">
+                        <div class="temp">Night - 25&#176; C</div>
+                        <div class="temp">Day - 22&#176; </div>
+                    </div>
+                    <div class="weather-forecast-items">
+                        <div class="day">Tue</div>
+                        <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="">
+                        <div class="temp">Night - 25&#176; C</div>
+                        <div class="temp">Day - 22&#176; </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    {{>footer}}
+    <!-- Option 2: My own js file -->
+    <script src="js/weatherForecastcity.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+        integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</body>
+
+</html>

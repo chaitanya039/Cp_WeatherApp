@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+ {{>headerlinks}}
+</head>
+
+<body>
+  {{!-- navbar --}}
+  {{>navbar}}
+
+  <!-- main header -->
+  <div class="container-fluid main_header">
+    <div class="row">
+      <div class="col-md-10 col-12 mx-auto">
+        <div class="row">
+          <!-- left side div -->
+          <div class="col-md-6 col-12 main_header_left">
+              <p>Welcome to, Weather App by chaitanya pansare...</p>
+              <p style="font-style: normal;">Check out our Features for more Functionality</p>
+              <h1>Let find out, Latest <span class="span">Weather</span> Information of your City</h1>
+              <a href="/weather_forecast_city"><button>Check Now</button></a>
+          </div>
+          <!-- right side div -->
+          <div class="col-md-6 col-12 main_header_right">
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              </div>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="images/bg1.jpg" class="w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                  <img src="images/bg2.jpg" class="w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                  <img src="images/bg3.jpg" class="w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                  <img src="images/bg4.jpg" class="w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                  <img src="images/bg5.jpg" class="w-100" alt="...">
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!-- footer section -->
+{{>footer}}
+
+</body>
+
+</html>
+

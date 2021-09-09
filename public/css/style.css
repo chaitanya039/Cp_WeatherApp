@@ -1,0 +1,564 @@
+@import url('https://fonts.googleapis.com/css2?family=Piazzolla:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Philosopher&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+
+/* universal default style */
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+/* body section */
+body{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    font-family: 'Piazzolla', serif;
+}
+
+/* html section */
+html{
+    font-size: 62.5%;
+}
+
+/* navbar section */
+.main_menu{
+    background-color: #130f40;
+}
+.navbar{
+    color: #fff;
+    padding: 2rem 0 !important;
+}
+.navbar li{
+    padding: 0 1rem;
+    margin: 0%;
+}
+.navbar-dark .navbar-nav .nav-link{
+    color: #fff;
+    font-size: 1.8rem;  
+    transition: all 0.2s linear;
+    font-weight: 600;
+}
+.navbar-dark .navbar-nav .nav-link:hover{
+    text-decoration: overline;
+    color: rgb(255, 136, 0);
+}
+
+.navbar-dark .navbar-brand{
+    font-size: 2.2rem;
+    transition: all 0.2s linear;
+}
+.navbar-dark .navbar-brand:hover{
+    color: orangered;
+}
+.fa-snowflake-o{
+    transition: all linear;
+    animation: rotate 1s linear infinite;
+    color: orangered;
+}
+
+.row{
+    margin: 0%;
+}
+
+/* PAGE 1: HOME AND ABOUT :- main_header section */
+.main_header_left{
+    height: 60rem;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+.main_header_left p{
+    font-size: 2rem;
+    font-style: italic;
+    font-weight: 550;
+}
+.main_header_left h1{
+    font-size: 3.5rem;
+    font-weight: 555;
+    margin: 0.5rem 0rem 3.5rem 0;
+    text-transform: capitalize;
+}
+.span{
+    color: orangered;
+}
+.main_header_left button {
+    background-color: #fff;
+    color: orangered;
+    border: 1.59px solid orangered;
+    padding: 0.5rem 1.5rem;
+    font-size: 1.4rem;
+    font-weight:550;
+    border-radius: 20px;
+    text-transform: uppercase;
+    transition: all 0.2s linear;
+    outline: none;
+    box-shadow: 0px 8px 6px -6px black;
+}
+.main_header_left button:hover{
+    background-color:orangered ;
+    border-color: orangered;
+    outline: none;
+    color: white;
+    box-shadow: 0px 8px 6px -6px rgb(248, 199, 107);
+}
+.main_header_right{
+    height: 60rem;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.main_header_right img{
+    filter: drop-shadow(0 0.5rem 1rem rgba(0, 0, 0, 0.3));
+}
+
+
+/* PAGE 2 :- Get your current temperature and location information... */
+/* temperature information */
+.tempInformation{
+    width: 100%;
+    margin: 2rem auto;
+    background-color:#0a3d62 ;
+    color: white;
+    min-height: 22rem;
+    border-radius: 1rem;
+}
+.top_layer{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    background-color: #3c6382;
+}
+.top_layer p{
+    color: white;
+    font-weight: 300;
+    padding: 2rem;
+    font-size: 1.7rem;
+}
+.main_layer{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    color: white;
+}
+.main_layer #city_name{
+    padding: 2rem 0rem;
+    font-size: 2rem;
+}
+.main_layer .middle_layer{
+    display: flex;
+    justify-content: space-around;
+    font-weight: 900;
+    font-size: 6.5rem;
+}
+.main_layer .middle_layer .fa, .fas{
+    font-size: 10rem;
+}
+
+
+.data-hide{
+    visibility: hidden;
+    transition: all 0.3s linear;
+}
+
+/* temp form styling */
+.temp_form{
+    width: 100%;
+    height: auto;
+    position: relative;
+    margin: 4rem auto 5rem;
+}
+
+.temp_form input[type="text"]{
+    width: 100%;
+    height: auto;
+    padding: 2rem;
+    border-radius: 5rem;
+    outline: none;
+    background-color: #0a3d62;
+    color: #fff;
+    font-size: 1.6rem;
+    box-shadow: 0px 8px 6px -6px black;
+}
+
+
+
+.temp_form button[type="submit"]{
+    position: absolute;
+    top: 7px;
+    right: 10px;
+    bottom: 8px;
+    color: white;
+    background-color: orangered;
+    border: 1px solid #fff;
+    outline: none;
+    padding: 0rem 3rem;
+    font-size: 1.5rem;
+    border-radius: 3rem;
+    transition: all 0.2s linear;
+    
+}
+
+.temp_form button[type="submit"]:hover{
+    background-color: #fff;
+    border: 1px solid orangered;
+    color: orangered;
+
+}
+
+sup{
+    margin-top: -2rem;
+}
+
+
+/* mapbox styling */
+#map{
+    margin: 3rem 0rem;
+    border-radius: 22px;
+    box-shadow: -3px -3px 6px 0.5px grey;
+}
+
+/* temperature marker information */
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2rem;
+    margin: 2rem;
+    background: linear-gradient(#7f7fd5, #86a8e7, #91eae4);
+    font-weight: 900;
+}
+.content .fa{
+    font-size: 2.5rem;
+}
+
+/* PAGE 3 :- weather forecat styling */
+.main-container{
+    font-size: 2rem;
+    color: white;
+    padding: 2rem 4rem;
+    font-family: 'Poppins', sans-serif !important;
+}
+.second-container{
+    font-size: 2rem;
+    font-family: 'Poppins', sans-serif !important;
+}
+.current-info{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+.date-container{
+    font-weight: 100;
+}
+.date-container .time{
+    font-size: 7rem;
+}
+
+.date-container #am-pm{
+    font-size: 4rem;
+}
+
+.date-container .date{
+    font-size: 3rem;
+}
+
+.place-container{
+    text-align: end;
+}
+
+.place-container .time-zone{
+    font-size: 3.5rem;
+    font-weight: 100;
+}
+
+.place-container .country{
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.current-info .current-weather-items{
+    background: rgba(24,24,27, 0.6);
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 1px solid white;
+    margin: 1rem 0rem;
+}
+
+.current-info .current-weather-items .weather-item{
+    display: flex;
+    justify-content: space-between;
+}
+
+.future-forecast{
+    background: rgba(0, 0, 0,0.2);
+    display: flex;
+    color:white;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    overflow-y: hidden;
+    padding: 2rem;
+    margin-top: 3rem;
+}
+.hourly-forecast{
+    background: rgba(24, 24, 27,0.2);
+    /* background: red; */
+    display: flex;
+    color:white;
+    width: 100%;
+    align-items: center;
+    justify-content: start;
+    overflow-y: hidden;
+    padding: 0.5rem;
+    margin-top: 1.5rem;
+    font-family: "roboto", sans-serif;
+    font-size: 1.3rem;
+}
+
+.future-forecast .today{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #eee;
+    border-radius: 1rem;
+    padding:1.5rem;
+    padding-right: 4rem;
+    background: rgba(0,0,0,0.2)
+}
+
+.future-forecast img{
+    filter: drop-shadow(0 0.5rem 1rem rgba(245, 237, 237, 0.7));
+}
+
+.hourly-forecast img{
+    filter: drop-shadow(0 0.5rem 1rem rgba(245, 237, 237, 0.7));
+}
+
+.future-forecast .today .day{
+    padding: 0.5rem 1.5rem;
+    background: linear-gradient(orangered, rgb(254, 167, 63));
+    color: #eee;
+    border-radius: 5rem;
+    text-align: center;
+    border: 1px solid white;
+} 
+
+.future-forecast .today .temp{
+    font-size: 1.8rem;
+    padding-top: 1.5rem;
+}
+
+.future-forecast .weather-forecast{
+    display: flex;
+    flex-direction: row;
+}
+
+.weather-forecast .weather-forecast-items{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 1.5rem;
+    border: 1px solid #eee;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    background: rgba(0,0,0,0.2)
+}
+
+.hourly-forecast  .after-hour{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem;
+    margin-top: 1.5rem;
+    /* border: 0.25px solid white; */
+}
+.description{
+    text-align: center;
+}
+
+.weather-forecast .weather-forecast-items .day{
+    padding: 0.3rem 1.5rem;
+    background: linear-gradient(darkorange,orange );
+    color: #eee;
+    border-radius: 1rem;
+    text-align: center;
+    border: 1px solid white;
+}
+
+.hourly-forecast .after-hour .time{
+    padding: 0.5rem 1rem;
+    background: linear-gradient(#2980B9, #6DD5FA, #FFFFFF);
+    color: #000;
+    font-weight: 600;
+    text-align: center;
+    font-size: 1.6rem;
+    border-radius: 0.5rem;
+}
+
+
+
+/* PAGE 4 :- error page styling */
+.errimg img{
+    height: 40rem;
+    width: 50rem;
+}
+
+/* footer section */
+footer{
+    width: 100%;
+    background-color:#130f40;
+    margin-top: auto;
+    display: flex;
+    color:white;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+footer div{
+    text-align: center;
+    line-height: 4.5rem;
+    color: white;
+    font-size: 1.6rem;
+}
+
+
+/* animation section */
+@keyframes rotate {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+/* responsive code */
+@media screen and (max-width: 768px) {
+    .main_header_left{
+        height: auto;
+        margin: 5rem 0rem;
+    }
+    .main_header_right{
+        height: auto;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+    .temp_form{
+        width: 100%;
+    }
+    .tempInformation{
+        width: 100%;
+    }
+    .main_layer .middle_layer{
+        font-size: 5.5rem;
+    }
+    .main_layer .middle_layer .fa, .fas{
+        font-size: 8rem;
+    }
+
+    /* weather forcasting styling */
+    
+        .main-container{
+            padding: 2rem;
+            padding-top: 0.3rem;
+        }
+        
+        .future-forecast{
+            justify-content: start;
+            align-items: none;
+            overflow-x: scroll;
+        }
+    
+        .future-forecast .today .temp{
+            font-size: 1.6rem;
+        }
+    
+        .date-container .time{
+            font-size: 5rem;
+        }
+    
+        .date-container #am-pm{
+            font-size: 2rem;
+        }
+    
+        .date-container .date{
+            font-size: 2rem;
+        }
+    
+        .place-container{
+            text-align: center;
+
+        }
+    
+        .place-container .time-zone{
+            font-size: 2rem;
+        }
+        .current-info{
+            text-align: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .current-info .weather-forecast-items{
+            padding: 1.2rem;
+        }
+
+}
+@media screen and (max-width: 576px) {
+    html{
+        font-size: 55%;
+    }
+    .main_layer .middle_layer{
+        font-size: 4.5rem;
+    }
+    .main_layer .middle_layer .fa, .fas{
+        font-size: 6rem;
+    }
+    .content{
+        margin-bottom: 4rem;
+    }
+   
+}
+
+@media screen and (max-width: 425px){
+    footer div{
+        font-size: 1.1rem;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .content{
+       padding-left: 0rem;
+    }
+    #marker{
+        font-size: 1.1rem;
+    }
+}
+
+@media only screen and (max-width: 1400px){
+    .future-forecast{
+        justify-content: start;
+        align-items: none;
+        overflow-x: scroll;
+    }
+}

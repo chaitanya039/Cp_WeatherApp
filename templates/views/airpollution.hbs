@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    {{>headerlinks}}
+    <style>
+        body {
+            margin: 0%;
+            padding: 0%;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            background: url('images/air.jpg') no-repeat center center/cover fixed;
+        }
+
+        #cityName {
+            background-color: #dff9fb;
+            color: #130f40;
+            border: 1px solid #130f40;
+            box-shadow: none;
+            margin-top: 0%;
+        }
+
+        .table {
+            width: 100%;
+            height: 100%;
+            font-size: 2rem;
+        }
+
+        #head {
+            color: white;
+            font-size: 3rem;
+            border-radius: 3rem;
+            border: 0.5px solid white;
+            background: linear-gradient(#8E0E00, #1F1C18);
+            padding: 1rem;
+            width: 40%;
+            margin: 0rem auto;
+            margin-top: 2rem;
+        }
+
+        #table-container {
+            background-color: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            display: none;
+        }
+
+        #dd {
+            padding: 2rem;
+        }
+
+        @media screen and (max-width: 1200px) {
+            #head{
+                font-size: 2.5rem;
+            }
+        }
+
+        @media screen and (max-width: 992px) {
+            #head{
+                font-size: 2rem;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            #head{
+                width: 100%;
+            }
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    {{!-- navbar --}}
+    {{>navbar}}
+
+    <div class="container">
+        <div class="row col-12" style="text-align: center;">
+            <h1 id="head"><i class="fa fa-laptop">&nbsp;&nbsp;</i>Air pollution of your city</h1>
+            <div class="main_content">
+                <form action="" class="temp_form">
+                    <input type="text" id="cityName" placeholder="Enter Your City  name..." autocomplete="off">
+                    <button type="submit" id="submitBtn" style="font-size:1.9rem;">Search <i class="fa fa-search"
+                            style="margin-left: 0.5rem; font-size:2rem;"></i> </button>
+                </form>
+            </div>
+        </div>
+        <div class="row col-12" id="table-container">
+            <h3 id="dd">August 24, 2020</h3>
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Sr no.</th>
+                        <th scope="col">Pollutants</th>
+                        <th scope="col">Quantity of Pollutants</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Carbon Monoxide</td>
+                        <td id="co">Otto</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Ammonia</td>
+                        <td id="nh3">Thornton</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Nitrogen Monoxide</td>
+                        <td id="no">porem4</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">4</th>
+                        <td>Nitrogen dioxide</td>
+                        <td id="no2">porem4</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">5</th>
+                        <td>Ozone</td>
+                        <td id="o3">porem4</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">6</th>
+                        <td>Particulates PM <sub>2.5</sub></td>
+                        <td id="pm2.5">porem4</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">7</th>
+                        <td>Particulates PM <sub>10</sub></td>
+                        <td id="pm10">porem4</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">8</th>
+                        <td>Sulphur dioxide</td>
+                        <td id="so2">porem4</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2 id="air" style="padding: 2rem;"></h2>
+        </div>
+    </div>
+
+
+    <!-- footer section -->
+    {{>footer}}
+
+    <script>
+        const submitBtn = document.getElementById('submitBtn');
+        const table_container = document.getElementById('table-container');
+        const table = document.querySelector('.table');
+        const cityName = document.getElementById('cityName');
+        const air = document.getElementById('air');
+        const co = document.getElementById('co');
+        const nh3 = document.getElementById('nh3');
+        const no = document.getElementById('no');
+        const no2 = document.getElementById('no2');
+        const o3 = document.getElementById('o3');
+        const pm25 = document.getElementById('pm2.5');
+        const pm10 = document.getElementById('pm10');
+        const so2 = document.getElementById('so2');
+        const dd = document.getElementById('dd');
+
+        submitBtn.addEventListener('click', async (e) => {
+            e.preventDefault();
+            if (cityName.value === "") {
+                alert('Please, Enter the city name brfore search');
+                table_container.style.display = 'none';
+            }
+            else {
+                try {
+                    submitBtn.innerHTML = `
+                    <span class="spinner-border spinner-border-md" role="status" aria-hidden="true"></span>
+                    Loading...`;
+                    const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName.value}&units=metric&appid=6e2063591e0fcbed66fc99e142be55ab`;
+                    const response = await fetch(url);
+                    const data = await response.json();
+                    const latitude = data.coord.lat;
+                    const longitude = data.coord.lon;
+                    const city = data.name;
+
+                    await fetch(`http://api.openweathermap.org/data/2.5/air_pollution?lat=${latitude}&lon=${longitude}&appid=6e2063591e0fcbed66fc99e142be55ab`)
+                        .then(async response => await response.json())
+                        .then((data) => {
+                            console.log(data);
+                            co.innerHTML = data.list[0].components.co + " μg/m<sup>3</sup>";
+                            nh3.innerHTML = data.list[0].components.nh3 + " μg/m<sup>3</sup>";
+                            no.innerHTML = data.list[0].components.no + " μg/m<sup>3</sup>";
+                            no2.innerHTML = data.list[0].components.no2 + " μg/m<sup>3</sup>";
+                            o3.innerHTML = data.list[0].components.o3 + " μg/m<sup>3</sup>";
+                            pm25.innerHTML = data.list[0].components.pm2_5 + " μg/m<sup>3</sup>";
+                            pm10.innerHTML = data.list[0].components.pm10 + " μg/m<sup>3</sup>";
+                            so2.innerHTML = data.list[0].components.so2 + " μg/m<sup>3</sup>";
+
+                            dd.innerHTML = window.moment(data.list[0].dt * 1000).format('LL');
+                            let airQuality = data.list[0].main.aqi;
+                            console.log(airQuality);
+
+                            switch (airQuality) {
+                                case 1:
+                                    airQuality = "Good";
+                                    break;
+
+                                case 2:
+                                    airQuality = "Fair";
+                                    break;
+
+                                case 3:
+                                    airQuality = "Moderate";
+                                    break;
+
+                                case 4:
+                                    airQuality = "Poor";
+                                    break;
+
+                                case 5:
+                                    airQuality = "Very Poor";
+                                    break;
+
+                                default:
+                                    airQuality = "Fine";
+                                    break;
+                            }
+
+                            air.innerHTML = `<i class="fa fa-snowflake-o" aria-hidden="true" style = "color: black;"></i>
+                                             &nbsp;&nbsp;Air Quality of ${city} is ${airQuality}&nbsp;&nbsp;
+                                             <i class="fa fa-snowflake-o" aria-hidden="true" style = "color: black;"></i>`;
+                        });
+
+
+
+                    table_container.style.display = 'block';
+                    if (table_container.style.display = 'block') {
+                        submitBtn.innerHTML = `Search <i class="fa fa-search"
+                            style="margin-left: 0.5rem; font-size:2rem;"></i> `
+                    }
+                }
+                catch (error) {
+                    console.error(error)
+                    alert('Please, Enter the proper name of your city');
+                    table_container.style.display = 'none';
+                    submitBtn.innerHTML = `Search <i class="fa fa-search"
+                            style="margin-left: 0.5rem; font-size:2rem;"></i> `;
+                }
+            }
+        })
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+        integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</body>
+
+</html>

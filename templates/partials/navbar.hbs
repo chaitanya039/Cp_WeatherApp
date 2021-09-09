@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  {{>headerlinks}}
+  <style>
+    .dropdown-item {
+      font-size: 1.8rem;
+    }
+
+    .dropdown-menu {
+      background-color: #130f40;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container-fluid main_menu">
+    <div class="row">
+      <div class="col-md-10 col-12 mx-auto">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+
+          <a href="/" class="navbar-brand px-3">
+            <i class="fa fa-snowflake-o" aria-hidden="true"></i>
+            &nbsp;Cp_WeatherApp&nbsp;
+            <i class="fa fa-snowflake-o" aria-hidden="true"></i>
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#myNavbar" aria-controls="myNavbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="navbar-nav float-right ms-auto me-3">
+              <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="10,20">
+                  Features
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownMenuLink">
+                  <li><a class="dropdown-item" href="/Weather">Get Current Temperature & Locations of city</a></li>
+                  <li><a class="dropdown-item" href="/mylocation">Your current Location</a></li>
+                  <hr class="dropdwon-divider">
+                  <li><a class="dropdown-item" href="/route">Find your Route Information</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="10,20">
+                  Weather Forecasting
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownMenuLink">
+                  <li><a class="dropdown-item" href="/weatherforecast">Weather forecasting of your current location</a></li>
+                  <li><a class="dropdown-item" href="/weather_forecast_city">Weather forecasting of your city</a></li>
+                  <hr class="dropdwon-divider">
+                  <li><a class="dropdown-item" href="/airpollution">Check Air Pollution of city</a></li>
+                </ul>
+              </li>
+              <li class="nav-item"><a href="/about" class="nav-link">About Us</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+  <!-- Option 2: My own js file -->
+
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    {{>headerlinks}}
+</head>
+
+<style>
+    body{
+        background: url("images/darkWeather.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+    #map {
+        width: 60vw;
+        height: 75vh;
+    }
+    @media screen and (max-width:768px) {
+        #map{
+            width: 100%;
+        }
+    }
+</style>
+
+<body>
+    {{!-- navbar --}}
+    {{>navbar}}
+
+    <!-- main header -->
+    <div class="container-fluid" style="display: flex;
+    justify-content: center;">
+        <div id='map'></div>
+    </div>
+
+
+    <!-- footer section -->
+    {{>footer}}
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoiY2hhaXRhbnlhcGFuc2FyZSIsImEiOiJja3N2enhja3cweTV2MnlzMmhvcWpvZGswIn0.cNzFVJvtDCh8s__UH9rMbQ';
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v11',
+            center: [77, 28],
+            zoom: 3.5
+        });
+
+    </script>
+    <script>
+        addEventListener("load", () => {
+            setTimeout(() => {
+                navigator.geolocation.getCurrentPosition((success) => {
+                    console.log(success);
+                    var { latitude, longitude } = success.coords;
+                    console.log(latitude, longitude);
+                    // Create a Marker of city and add it to the map.
+                    new mapboxgl.Marker({
+                        color: "blue"
+                    })
+                        .setLngLat([longitude, latitude])
+                        .addTo(map);
+
+                    map.flyTo({
+                        center: [longitude, latitude],
+                        zoom: 11.7,
+                        essential: true // this animation is considered essential with respect to prefers-reduced-motion
+                    });
+                })
+            }, 2000)
+        })
+
+    </script>
+
+</body>
+
+</html>

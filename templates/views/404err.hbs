@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  {{>headerlinks}}
+</head>
+
+<body>
+  {{!-- navbar --}}
+  {{>navbar}}
+
+  <!-- main header -->
+  <div class="container-fluid main_header">
+    <div class="row">
+      <div class="col-md-10 col-12 mx-auto">
+        <div class="row">
+          <!-- left side div -->
+            <div class="col-md-12 col-12 main_header_left align-items-center">
+              <figure class="errimg">
+                  <img src="images/404.png" alt="error" class="img-fluid" title="Oops sorry!">
+              </figure>
+              <p style="color: darkgreen; font-size: 1.5rem; font-style:normal; font-family: 'Philosopher', sans-serif;">The page you are looking for might have been removed, <br>
+               had it's name changed or it's temporarily unavailable..</p>
+              <h1><span class="span">{{reaction}}</span> {{errMsg}}</h1>
+              <a href="/"><button>Go Back</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!-- footer section -->
+{{>footer}}
+
+</body>
+
+</html>
+

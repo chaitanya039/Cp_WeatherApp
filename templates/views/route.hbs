@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    
+    {{>headerlinks}}
+    <script
+        src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
+    <link rel="stylesheet"
+        href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css"
+        type="text/css">
+
+    <style>
+
+        body{
+            background: linear-gradient(#000000, #434343);
+        }
+        #map {
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+
+</head>
+
+<body>
+    {{!-- navbar --}}
+    {{>navbar}}
+
+    {{!-- button.btn --}}
+    <div id="map" style=" box-shadow:none; border: 2px solid white; border-radius: 0.3rem;"></div>
+
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoiY2hhaXRhbnlhcGFuc2FyZSIsImEiOiJja3N2enhja3cweTV2MnlzMmhvcWpvZGswIn0.cNzFVJvtDCh8s__UH9rMbQ';
+        const map = new mapboxgl.Map({
+            container: 'map', // container ID
+            style: 'mapbox://styles/mapbox/streets-v11', // style URL
+            center: [77, 28], // starting position
+            zoom: 3 // starting zoom
+        });
+
+        map.addControl(
+            new MapboxDirections({
+                accessToken: mapboxgl.accessToken
+            }),
+            'top-left'
+        );
+
+        // Add zoom and rotation controls to the map.
+        map.addControl(new mapboxgl.NavigationControl());
+    </script>
+
+    <!-- footer section -->
+    {{>footer}}
+
+
+
+</body>
+
+</html>
