@@ -45,7 +45,7 @@ const getWeatherData = async () => {
             submitBtn.innerHTML = `
                     <span class="spinner-border spinner-border-md" role="status" aria-hidden="true"></span>
                     Loading...`;
-            let url = `http://api.openweathermap.org/data/2.5/weather?q=${cityVal}&units=metric&appid=6e2063591e0fcbed66fc99e142be55ab`;
+            let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityVal}&units=metric&appid=6e2063591e0fcbed66fc99e142be55ab`;
             const response = await fetch(url);
             const data = await response.json();
             console.log(data);
@@ -53,14 +53,14 @@ const getWeatherData = async () => {
             const longitude = data.coord.lon;
             countryEl.innerHTML = `<div class="country" id="country"><span style="padding: 0.5rem; border: 0.5px solid white; border-radius:0.5rem;box-shadow: -2px 2px 3px -0.5px white;">${data.name}, ${data.sys.country}</span>&nbsp;&nbsp;${data.coord.lat}N&nbsp;&nbsp;&nbsp;${data.coord.lon}E </div>`
 
-            await fetch(`http://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly,minutely&units=metric&appid=6e2063591e0fcbed66fc99e142be55ab`)
+            await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly,minutely&units=metric&appid=6e2063591e0fcbed66fc99e142be55ab`)
                 .then(response => response.json())
                 .then(data => {
                     console.log(data);
                     showWhetherData(data);
                 })
 
-            await fetch(`http://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=daily&units=metric&appid=6e2063591e0fcbed66fc99e142be55ab`)
+            await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=daily&units=metric&appid=6e2063591e0fcbed66fc99e142be55ab`)
                 .then(response => response.json())
                 .then(data => {
                     showHourData(data);
@@ -128,7 +128,7 @@ const showWhetherData = (data) => {
     data.daily.forEach((element, index) => {
         if (index === 0) {
             currentTempEl.innerHTML =
-                `<img src="http://openweathermap.org/img/wn/${element.weather[0].icon}@2x.png" alt="">
+                `<img src="https://openweathermap.org/img/wn/${element.weather[0].icon}@2x.png" alt="">
                 <div class="other">
                     <div class="day">${window.moment(element.dt * 1000).format('ddd')}</div>
                     <div class="temp">Night - ${element.temp.night}&#176; C</div>
@@ -139,7 +139,7 @@ const showWhetherData = (data) => {
             otherDayForecast += ` 
             <div class="weather-forecast-items">
                 <div class="day">${window.moment(element.dt * 1000).format('ddd')}</div>
-                <img src="http://openweathermap.org/img/wn/${element.weather[0].icon}@2x.png" alt="">
+                <img src="https://openweathermap.org/img/wn/${element.weather[0].icon}@2x.png" alt="">
                 <div class="temp">Night - ${element.temp.night}&#176; C</div>
                 <div class="temp">Day - ${element.temp.day}&#176; C</div>
             </div>
@@ -159,7 +159,7 @@ const showHourData = (data) => {
                 `
         <div class="after-hour">
             <div class="time">${window.moment(element.dt * 1000).format('LT')}</div>
-            <img src="http://openweathermap.org/img/wn/${element.weather[0].icon}@2x.png" alt="">
+            <img src="https://openweathermap.org/img/wn/${element.weather[0].icon}@2x.png" alt="">
             <div class="temperature">${element.temp}&#176; C</div>
             <div class="description">${element.weather[0].description}</div>
         </div>
