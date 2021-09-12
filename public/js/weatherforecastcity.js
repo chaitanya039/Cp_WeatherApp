@@ -66,12 +66,12 @@ const getWeatherData = async () => {
                     showHourData(data);
                 });
 
-                display_container.style.display = "block";
-                search_container.style.display = "none";
+            display_container.style.display = "block";
+            search_container.style.display = "none";
 
-                if ((display_container.style.display = 'block') && (search_container.style.display = "none")) {
-                    submitBtn.innerHTML = `Search <i class="fa fa-search" style="margin-left: 0.5rem; font-size:2rem;"></i>`;
-                }
+            if ((display_container.style.display = 'block') && (search_container.style.display = "none")) {
+                submitBtn.innerHTML = `Search <i class="fa fa-search" style="margin-left: 0.5rem; font-size:2rem;"></i>`;
+            }
 
             const ref = document.getElementById('ref');
             ref.addEventListener("click", () => {
@@ -80,6 +80,7 @@ const getWeatherData = async () => {
         }
 
         catch (error) {
+            console.error(error);
             display_container.style.display = "none";
             search_container.style.display = "block";
             submitBtn.innerHTML = `Search <i class="fa fa-search" style="margin-left: 0.5rem; font-size:2rem;"></i> `;
