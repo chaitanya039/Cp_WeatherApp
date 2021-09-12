@@ -118,9 +118,11 @@ const getWeatherData = async () => {
 
     else {
         try {
-            // submitBtn.innerHTML = `
-            //         <span class="spinner-border spinner-border-md" role="status" aria-hidden="true"></span>
-            //         Loading...`;
+
+            submitBtn.innerHTML = `
+                    <span class="spinner-border spinner-border-md" role="status" aria-hidden="true"></span>
+                    Loading...`;
+
             let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityVal}&units=metric&appid=6e2063591e0fcbed66fc99e142be55ab`;
             const response = await fetch(url);
             const data = await response.json();
@@ -146,22 +148,22 @@ const getWeatherData = async () => {
             display_container.style.display = "block";
             search_container.style.display = "none";
 
-            // if ((display_container.style.display = 'block') && (search_container.style.display = "none")) {
-            //     submitBtn.innerHTML = `Search <i class="fa fa-search" style="margin-left: 0.5rem; font-size:2rem;"></i>`;
-            // }
+            if ((display_container.style.display = 'block') && (search_container.style.display = "none")) {
+                submitBtn.innerHTML = `Search <i class="fa fa-search" style="margin-left: 0.5rem; font-size:2rem;"></i>`;
+            };
 
-            // const ref = document.getElementById('ref');
-            // ref.addEventListener("click", () => {
-            //     window.location.reload();
-            // })
+            const ref = document.getElementById('ref');
+            ref.addEventListener("click", () => {
+                window.location.reload();
+            });
         }
 
         catch (error) {
             console.error(error);
             display_container.style.display = "none";
             search_container.style.display = "block";
-            // submitBtn.innerHTML = `Search <i class="fa fa-search" style="margin-left: 0.5rem; font-size:2rem;"></i> `;
-            // alert("Please, Enter proper name of the city...");
+            submitBtn.innerHTML = `Search <i class="fa fa-search" style="margin-left: 0.5rem; font-size:2rem;"></i> `;
+            alert("Please, Enter proper name of the city...");
         }
 
     }
