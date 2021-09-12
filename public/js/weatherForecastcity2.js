@@ -95,24 +95,24 @@ const getWeatherData = async () => {
             console.log(data);
             const latitude = data.coord.lat;
             const longitude = data.coord.lon;
-            // countryEl.innerHTML = `<div class="country" id="country"><span style="padding: 0.5rem; border: 0.5px solid white; border-radius:0.5rem;box-shadow: -2px 2px 3px -0.5px white;">${data.name}, ${data.sys.country}</span>&nbsp;&nbsp;${data.coord.lat}N&nbsp;&nbsp;&nbsp;${data.coord.lon}E </div>`
+            countryEl.innerHTML = `<div class="country" id="country"><span style="padding: 0.5rem; border: 0.5px solid white; border-radius:0.5rem;box-shadow: -2px 2px 3px -0.5px white;">${data.name}, ${data.sys.country}</span>&nbsp;&nbsp;${data.coord.lat}N&nbsp;&nbsp;&nbsp;${data.coord.lon}E </div>`
 
             await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly,minutely&units=metric&appid=6e2063591e0fcbed66fc99e142be55ab`)
                 .then(response => response.json())
                 .then(data => {
                     console.log(data);
-                    // showWhetherData(data);
+                    showWhetherData(data);
                 })
 
             await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=daily&units=metric&appid=6e2063591e0fcbed66fc99e142be55ab`)
                 .then(response => response.json())
                 .then(data => {
                     console.log(data);
-                    // showHourData(data);
+                    showHourData(data);
                 });
 
-            // display_container.style.display = "block";
-            // search_container.style.display = "none";
+            display_container.style.display = "block";
+            search_container.style.display = "none";
 
             // if ((display_container.style.display = 'block') && (search_container.style.display = "none")) {
             //     submitBtn.innerHTML = `Search <i class="fa fa-search" style="margin-left: 0.5rem; font-size:2rem;"></i>`;
@@ -126,8 +126,8 @@ const getWeatherData = async () => {
 
         catch (error) {
             console.error(error);
-            // display_container.style.display = "none";
-            // search_container.style.display = "block";
+            display_container.style.display = "none";
+            search_container.style.display = "block";
             // submitBtn.innerHTML = `Search <i class="fa fa-search" style="margin-left: 0.5rem; font-size:2rem;"></i> `;
             // alert("Please, Enter proper name of the city...");
         }
