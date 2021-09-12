@@ -1,4 +1,81 @@
 console.log("hello world");
+
+const showWhetherData = (data) => {
+    let { humidity, pressure, sunrise, sunset, wind_speed } = data.current; //destructing of an object...
+    console.log(wind_speed);
+
+    // DOM manipulate
+    timezone.innerHTML = `<div class="time-zone" id="time-zone">${data.timezone}</div>`;
+
+    currentWeatherItemsEl.innerHTML = `
+        <div class="weather-item">
+            <div>Humidity</div>
+            <div>${humidity}%</div>
+        </div>
+        <div class="weather-item">
+            <div>Pressure</div>
+            <div>${pressure}</div>
+        </div>
+        <div class="weather-item">
+            <div>Wind Speed</div>
+            <div>${wind_speed}</div>
+        </div>
+        <div class="weather-item">
+            <div>Sunrise</div>
+            <div>${window.moment(sunrise * 1000).format('HH:mm a')}</div>
+        </div>
+        <div class="weather-item">
+            <div>Sunset</div>
+            <div>${window.moment(sunset * 1000).format('HH:mm a')}</div>  
+        </div>`;
+
+    let otherDayForecast = "";
+    data.daily.forEach((element, index) => {
+        if (index === 0) {
+            currentTempEl.innerHTML =
+                `<img src="https://openweathermap.org/img/wn/${element.weather[0].icon}@2x.png" alt="">
+                <div class="other">
+                    <div class="day">${window.moment(element.dt * 1000).format('ddd')}</div>
+                    <div class="temp">Night - ${element.temp.night}&#176; C</div>
+                    <div class="temp">Day - ${element.temp.day}&#176; C</div>
+                </div>`;
+        }
+        else {
+            otherDayForecast += ` 
+            <div class="weather-forecast-items">
+                <div class="day">${window.moment(element.dt * 1000).format('ddd')}</div>
+                <img src="https://openweathermap.org/img/wn/${element.weather[0].icon}@2x.png" alt="">
+                <div class="temp">Night - ${element.temp.night}&#176; C</div>
+                <div class="temp">Day - ${element.temp.day}&#176; C</div>
+            </div>
+            `;
+        }
+    });
+    weatherForecastEl.innerHTML = otherDayForecast;
+}
+
+const showHourData = (data) => {
+    console.log(data);
+    let hourDetails = "";
+    data.hourly.forEach((element, index) => {
+        if (index <= 12) {
+
+            hourDetails +=
+                `
+        <div class="after-hour">
+            <div class="time">${window.moment(element.dt * 1000).format('LT')}</div>
+            <img src="https://openweathermap.org/img/wn/${element.weather[0].icon}@2x.png" alt="">
+            <div class="temperature">${element.temp}&#176; C</div>
+            <div class="description">${element.weather[0].description}</div>
+        </div>
+
+        `;
+        }
+    });
+    hourlyForecastEl.innerHTML = hourDetails;
+}
+
+
 const getWeatherData = async () => {
     const cityVal = cityName.value;
     if (cityVal === "") {
@@ -61,4 +138,4 @@ const getWeatherData = async () => {
 submitBtn.addEventListener('click', (e) => {
     e.preventDefault();
     getWeatherData();
-})
+});
