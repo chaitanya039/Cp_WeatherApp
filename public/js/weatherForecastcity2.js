@@ -1,4 +1,36 @@
 console.log("hello world");
+const submitBtn = document.getElementById('submitBtn');
+const search_container = document.getElementById('search-container');
+const display_container = document.getElementById('display-container');
+const cityName = document.getElementById('cityName');
+const timeEl = document.getElementById('time');
+const dateEl = document.getElementById('date');
+const currentWeatherItemsEl = document.getElementById('current-weather-items');
+const timezone = document.getElementById('time-zone');
+const countryEl = document.getElementById('country');
+const weatherForecastEl = document.getElementById('weather-forecast');
+const currentTempEl = document.getElementById('current-temp');
+let hourlyForecastEl = document.querySelector('.hourly-forecast');
+
+const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+
+setInterval(() => {
+    const time = new Date();
+    const month = time.getMonth();
+    const day = time.getDay();
+    const date = time.getDate();
+    const hour = time.getHours();
+    const HourIn12HrFormat = hour >= 13 ? hour % 12 : hour;
+    const minute = time.getMinutes();
+    const ampm = hour >= 12 ? "PM" : "AM";
+
+    timeEl.innerHTML = (HourIn12HrFormat < 10 ? "0" + HourIn12HrFormat : HourIn12HrFormat) + ":" + (minute < 10 ? "0" + minute : minute) +
+        " " + `<span id="am-pm">${ampm}</span>`;
+
+    dateEl.innerHTML = `${days[day]}, ${date} ${months[month]}`;
+}, 1000);
 
 const showWhetherData = (data) => {
     let { humidity, pressure, sunrise, sunset, wind_speed } = data.current; //destructing of an object...
