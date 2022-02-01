@@ -4,7 +4,7 @@ const express = require('express');
 const path = require('path');
 // for the use of express js partials...
 const hbs = require('hbs');
-
+const favicon = require('serve-favicon');
 
 //Create the express application by using the express function...
 const app = express();
@@ -12,6 +12,7 @@ const port = process.env.PORT || 80;
 
 // public static path
 const static_path = path.join(__dirname, "../public");
+const favicon_path = path.join(__dirname, "../public", "favicon.ico");
 const template_path = path.join(__dirname, "../templates/views");
 const partials_path = path.join(__dirname, "../templates/partials");
 
@@ -28,6 +29,7 @@ hbs.registerPartials(partials_path);
 // and express considered the top to bottom manner..
 // and then close the server request..
 app.use(express.static(static_path));
+app.use(favicon(favicon_path));
 
 
 // routing =>
