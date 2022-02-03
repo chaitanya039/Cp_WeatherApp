@@ -8,7 +8,7 @@ const getSportsNewsData = async (category) => {
     try
     {
         newsLoading.innerHTML = `<span class="spinner-border spinner-border-md" role="status"  aria-hidden="true"></span>`;
-        const url = `https://newsapi.org/v2/top-headlines?country=in&category=${category}&pageSize=50&apiKey=306a0143180f4bd7ae1ef8515453c2be`;
+        const url = `http://newsapi.org/v2/top-headlines?country=in&category=${category}&pageSize=50&apiKey=306a0143180f4bd7ae1ef8515453c2be`;
         const response = await fetch(url);
         const data = await response.json();
         if (data) {
