@@ -2,6 +2,7 @@
 // creating the express module first...
 const express = require('express');
 const path = require('path');
+const cors = require("cors");
 // for the use of express js partials...
 const hbs = require('hbs');
 const favicon = require('serve-favicon');
@@ -30,6 +31,7 @@ hbs.registerPartials(partials_path);
 // and then close the server request..
 app.use(express.static(static_path));
 app.use(favicon(favicon_path));
+app.use(cors());
 
 
 // routing =>
