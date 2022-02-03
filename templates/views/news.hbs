@@ -77,7 +77,8 @@
 </body>
 <script>
    let categoryName = window.location.href;
-   categoryName = categoryName.slice(17);
+   categoryName = categoryName.split("/").splice(-1);
+   categoryName = categoryName.toString();
    let heading = document.getElementById("news-welcome-header");
    heading.innerHTML = 
    `

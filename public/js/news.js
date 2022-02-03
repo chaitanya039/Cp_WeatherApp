@@ -77,7 +77,8 @@ const showSportsNewsData = async (data) => {
 }
 
 let category = window.location.href;
-category = category.slice(17);
+category = category.split("/").splice(-1);
+category = category.toString();
 console.log("it is url = " + category);
 
 switch (category) {
