@@ -131,19 +131,15 @@ const getWeatherData = async () => {
             const longitude = data.coord.lon;
             countryEl.innerHTML = `<div class="country" id="country"><span style="padding: 0.5rem; border: 0.5px solid white; border-radius:0.5rem;box-shadow: -2px 2px 3px -0.5px white;">${data.name}, ${data.sys.country}</span>&nbsp;&nbsp;${data.coord.lat}N&nbsp;&nbsp;&nbsp;${data.coord.lon}E </div>`
 
-            await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly,minutely&units=metric&appid=6e2063591e0fcbed66fc99e142be55ab`)
-                .then(response => response.json())
-                .then(data => {
-                    console.log(data);
-                    showWhetherData(data);
-                })
+           const responseForDailyForecast = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly,minutely&units=metric&appid=6e2063591e0fcbed66fc99e142be55ab`)
+           const dataForDailyForecast = await responseForDailyForecast.json();
+           console.log(dataForDailyForecast);
+           showWhetherData(dataForDailyForecast); // show weather data included with current weather as well forecast for daily
 
-            await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=daily&units=metric&appid=6e2063591e0fcbed66fc99e142be55ab`)
-                .then(response => response.json())
-                .then(data => {
-                    console.log(data);
-                    showHourData(data);
-                });
+            const responseForHourlyForecast = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=daily,minutely&units=metric&appid=6e2063591e0fcbed66fc99e142be55ab`)
+            const dataForHourlyForecast = await responseForHourlyForecast.json();
+            console.log(dataForHourlyForecast);
+            showHourData(dataForHourlyForecast); // for hpurly forecast
 
             display_container.style.display = "block";
             search_container.style.display = "none";
