@@ -83,42 +83,45 @@ app.get("/airpollution", (req, res)=>{
     res.render("airpollution.hbs");
 });
 
-// for sports news page
-app.get("/sports", (req, res)=>{
-    res.render("news.hbs");
-});
+// // for sports news page
+// app.get("/sports", (req, res)=>{
+//     res.render("news.hbs");
+// });
 
-// for entertainment news page
-app.get("/entertainment", (req, res)=>{
-    res.render("news.hbs");
-});
+// // for entertainment news page
+// app.get("/entertainment", (req, res)=>{
+//     res.render("news.hbs");
+// });
 
-// for general news page
-app.get("/general", (req, res)=>{
-    res.render("news.hbs");
-});
+// // for general news page
+// app.get("/general", (req, res)=>{
+//     res.render("news.hbs");
+// });
 
-// for business news page
-app.get("/business", (req, res)=>{
-    res.render("news.hbs");
-});
+// // for business news page
+// app.get("/business", (req, res)=>{
+//     res.render("news.hbs");
+// });
 
-// for health news page
-app.get("/health", (req, res)=>{
-    res.render("news.hbs");
-});
+// // for health news page
+// app.get("/health", (req, res)=>{
+//     res.render("news.hbs");
+// });
 
-// for science news page
-app.get("/science", (req, res)=>{
-    res.render("news.hbs");
-});
+// // for science news page
+// app.get("/science", (req, res)=>{
+//     res.render("news.hbs");
+// });
 
 
-// for technology news page
-app.get("/technology", (req, res)=>{
-    res.render("news.hbs");
-});
+// // for technology news page
+// app.get("/technology", (req, res)=>{
+//     res.render("news.hbs");
+// });
 
+ app.get("/news", (req, res)=>{
+         res.render("news.hbs");
+     });
 
 // undefined page 404 error page
 app.get("*", (req, res)=>{

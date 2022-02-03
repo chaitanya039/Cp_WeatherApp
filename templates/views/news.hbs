@@ -3,6 +3,48 @@
 
 <head>
         {{>headerlinks}}
+        <style>
+           body{
+              background-color: #eee !important;
+           }
+            .forImg{
+               width: 30rem;
+                height: 12rem;
+            }
+            .newsImg{
+                width: 100%;
+                height: 100%;
+                object-fit:cover;
+            }
+            .main-news{
+               overflow: hidden;
+               text-overflow: ellipsis;
+               box-shadow: 2px 2px 4px 0.1px grey;
+               padding: 1rem;
+               background-color: #fff;
+               font-family: 'Poppins', sans-serif !important;
+            }
+            .first{
+               font-size: 1.05rem;
+            }
+            .news-description{
+               font-size: 1.15rem;
+            }
+            .news-title{
+               font-size: 1.25rem;
+            }
+            .read-more{
+               padding-top: 1rem;
+               font-size: 1rem;
+               color: red;
+               text-decoration: none;
+            }
+            .read-more:hover{
+               color: red;
+               text-decoration: underline;
+            }
+        </style>
+   
 </head>
 
 <body>
@@ -13,11 +55,27 @@
                 <!-- main header -->
     <div class="col-md-10 mx-auto p-4 mt-2" id="main-box">
         <h1 class="head3 text-center" id="news-welcome-header">
-           <i class="fa fa-th me-1"></i> Sorry for inconvenience, Our team working on it...
+           <i class="fa fa-news me-1"></i> Welcome, Let's take a look for News 
         </h1>
+        <div id="news-loading" class="text-center">
+           
+        </div>
+        <div class="row justify-content-between" id="newSection">
+            {{!-- <div class="col-md-6 d-flex justify-content-between">
+            <div class="forImg">
+                <img src="images/darkNature.jpg" alt="" class="newsImg rounded">
+            </div>
+            <div class="forNews ps-3">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum error rerum fugiat totam ea ipsam dignissimos inventore animi voluptatibus exercitationem? Sequi, doloremque! Est harum laboriosam culpa! Maiores in eos tempore!
+            </div>
+        </div> --}}
+        </div>
     </div>
 
     {{>footer}}
    
 </body>
+
+<script src="js/TemNews.js"></script>
+
 </html>
