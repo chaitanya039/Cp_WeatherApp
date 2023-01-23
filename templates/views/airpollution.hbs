@@ -177,14 +177,14 @@
                     submitBtn.innerHTML = `
                     <span class="spinner-border spinner-border-md" role="status" aria-hidden="true"></span>
                     Loading...`;
-                    const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName.value}&units=metric&appid=6e2063591e0fcbed66fc99e142be55ab`;
+                    const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName.value}&units=metric&appid=8890dff122339fa3d3712c2559dc1f6f`;
                     const response = await fetch(url);
                     const data = await response.json();
                     const latitude = data.coord.lat;
                     const longitude = data.coord.lon;
                     const city = data.name;
 
-                    await fetch(`https://api.openweathermap.org/data/2.5/air_pollution?lat=${latitude}&lon=${longitude}&appid=6e2063591e0fcbed66fc99e142be55ab`)
+                    await fetch(`https://api.openweathermap.org/data/2.5/air_pollution?lat=${latitude}&lon=${longitude}&appid=8890dff122339fa3d3712c2559dc1f6f`)
                         .then(async response => await response.json())
                         .then((data) => {
                             console.log(data);

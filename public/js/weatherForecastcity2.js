@@ -123,7 +123,7 @@ const getWeatherData = async () => {
                     <span class="spinner-border spinner-border-md" role="status" aria-hidden="true"></span>
                     Loading...`;
 
-            let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityVal}&units=metric&appid=6e2063591e0fcbed66fc99e142be55ab`;
+            let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityVal}&units=metric&appid=8890dff122339fa3d3712c2559dc1f6f`;
             const response = await fetch(url);
             const data = await response.json();
             console.log(data);
@@ -131,12 +131,12 @@ const getWeatherData = async () => {
             const longitude = data.coord.lon;
             countryEl.innerHTML = `<div class="country" id="country"><span style="padding: 0.5rem; border: 0.5px solid white; border-radius:0.5rem;box-shadow: -2px 2px 3px -0.5px white;">${data.name}, ${data.sys.country}</span>&nbsp;&nbsp;${data.coord.lat}N&nbsp;&nbsp;&nbsp;${data.coord.lon}E </div>`
 
-           const responseForDailyForecast = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly,minutely&units=metric&appid=6e2063591e0fcbed66fc99e142be55ab`)
+           const responseForDailyForecast = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly,minutely&units=metric&appid=8890dff122339fa3d3712c2559dc1f6f`)
            const dataForDailyForecast = await responseForDailyForecast.json();
            console.log(dataForDailyForecast);
            showWhetherData(dataForDailyForecast); // show weather data included with current weather as well forecast for daily
 
-            const responseForHourlyForecast = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=daily,minutely&units=metric&appid=6e2063591e0fcbed66fc99e142be55ab`)
+            const responseForHourlyForecast = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=daily,minutely&units=metric&appid=8890dff122339fa3d3712c2559dc1f6f`)
             const dataForHourlyForecast = await responseForHourlyForecast.json();
             console.log(dataForHourlyForecast);
             showHourData(dataForHourlyForecast); // for hpurly forecast

@@ -34,13 +34,12 @@ const getWeatherData =  ()=>{
         let {latitude, longitude} = success.coords;
         console.log(latitude, longitude);
 
-        const response = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly,minutely&units=metric&appid=8890dff122339fa3d3712c2559dc1f6f
-`)
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly,minutely&units=metric&appid=8890dff122339fa3d3712c2559dc1f6f`)
         const data = await response.json();
         console.log(data);
         showWhetherData(data);
 
-        const responseForHourly = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=daily,minutely&units=metric&appid=6e2063591e0fcbed66fc99e142be55ab`)
+        const responseForHourly = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=daily,minutely&units=metric&appid=8890dff122339fa3d3712c2559dc1f6f`)
         const dataForHourly = await responseForHourly.json();
         showHourData(dataForHourly);
     })
