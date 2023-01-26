@@ -85,7 +85,24 @@
             <ul>
 
                 <li><a href="/">Home</a></li>
-                <li><a href="/news">News</a></li>
+                {{!-- <li><a href="/news">News</a></li> --}}
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="10,20">
+                    News
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownMenuLink">
+                    <li><a class="dropdown-item" href="/business">Business</a></li>
+                    <li><a class="dropdown-item" href="/health">Health</a></li>
+                    <li><a class="dropdown-item" href="/entertainment">Entertainment</a></li>
+                    <li><a class="dropdown-item" href="/sports">Sports</a></li>
+                    <li><a class="dropdown-item" href="/science">Science</a></li>
+                    <li><a class="dropdown-item" href="/technology">Technology</a></li>
+                    <hr class="dropdwon-divider">
+                    <li><a class="dropdown-item" href="/general">General</a></li>
+                  </ul>
+                </li> 
+
                 <!-- here we have our dropdown menu -->
                 <li><a href="#">Features 	
                     <i class="fa fa-angle-down"></i> </a>
@@ -129,19 +146,4 @@
 </html>
 
 
-              {{!-- <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                  data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="10,20">
-                  News
-                </a>
-                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownMenuLink">
-                  <li><a class="dropdown-item" href="/business">Business</a></li>
-                  <li><a class="dropdown-item" href="/health">Health</a></li>
-                  <li><a class="dropdown-item" href="/entertainment">Entertainment</a></li>
-                  <li><a class="dropdown-item" href="/sports">Sports</a></li>
-                  <li><a class="dropdown-item" href="/science">Science</a></li>
-                  <li><a class="dropdown-item" href="/technology">Technology</a></li>
-                  <hr class="dropdwon-divider">
-                  <li><a class="dropdown-item" href="/general">General</a></li>
-                </ul>
-              </li> --}}
+              
